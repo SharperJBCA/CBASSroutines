@@ -20,11 +20,8 @@ def restart():
 
     h.compressor.disable()
     # add a loop here?
-    # notRestarted = True
-    # while notRestarted:
-    #    notRestarted = h.compressor.enable()
+    #while not h.compressor.enable():
     #    time.sleep(30) # wait 30 seconds before checking again
-    # ??
     h.compressor.enable()
 
     print('Successfully restarted')
