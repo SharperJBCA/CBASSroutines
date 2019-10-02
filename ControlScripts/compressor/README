@@ -1,0 +1,8 @@
+# To restart the compressor:
+
+bash restart_compressor.sh
+
+# To use the compressor.py script direction invoke help to see options
+
+python compressor.py --help
+
