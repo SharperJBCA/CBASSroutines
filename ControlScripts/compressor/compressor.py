@@ -8,6 +8,34 @@ import getopt
 from communication import com
 import time
 
+def start():
+    """
+    Starts compressor
+    """
+
+    # Initilise the compressor communicator
+    h = com()
+    h.open()
+
+    while not h.compressor.enable():
+        time.sleep(30)
+
+    print('Compressor started')
+
+
+def stop():
+    """
+    Stops compressor
+    """
+
+    # Initilise the compressor communicator
+    h = com()
+    h.open()
+    h.compressor.disable()
+
+    print('Compressor stopped')
+
+
 def restart():
     """
     Runs through set commands needed to restart the compressor
@@ -20,9 +48,9 @@ def restart():
 
     h.compressor.disable()
     # add a loop here?
-    #while not h.compressor.enable():
-    #    time.sleep(30) # wait 30 seconds before checking again
-    h.compressor.enable()
+    while not h.compressor.enable():
+        time.sleep(30) # wait 30 seconds before checking again
+    #h.compressor.enable()
 
     print('Successfully restarted')
 
@@ -39,7 +67,7 @@ def usage():
 if __name__ == "__main__":
     try:
         # add options to this option list for extra functions
-        optlist = ['help','restart']
+        optlist = ['help','restart','start','stop']
         opts, args = getopt.getopt(sys.argv[1:], '', optlist)
     except getopt.GetoptError, err:
         print str(err)
@@ -47,7 +75,7 @@ if __name__ == "__main__":
         sys.exit(2)
 
     # add function + option name to this dictionary for it be called
-    funcs = {'help':usage, 'restart': restart}
+    funcs = {'help':usage, 'restart': restart,'start':start, 'stop':stop}
     options = {}
     # Parse the options:
     for opt in opts:
