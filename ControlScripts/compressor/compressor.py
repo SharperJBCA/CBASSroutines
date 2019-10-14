@@ -61,6 +61,8 @@ def usage():
     Options:
     --help : Print this output 
     --restart : Restarts compressor
+    --start : Starts compressor
+    --stop : Stops compressor
     """
     print(usage)
 
