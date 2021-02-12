@@ -6,3 +6,37 @@ bash restart_compressor.sh
 
 python compressor.py --help
 
+# Other commands
+
+These aren't yet supported in this script, but the complete list of commands available from the 'compressor' module is:
+
+h.open()
+h.close()
+
+Once you has done h.open() you can use:
+
+h.send_cmd(cmd)
+h.read_firmware_version()
+                              
+h.sensor.enable_averaging()                                          
+h.sensor.disable_averaging()               .                              
+h.sensor.contr_voltage()                           
+h.sensor.contr_current()                           
+h.sensor.contr_temperature()          
+h.sensor.compressor_supply_pressure()          
+h.sensor.compressor_return_pressure()          
+h.sensor.compressor_motor_temperature()          
+h.sensor.compressor_supply_temperature()          
+h.sensor.log_data(path,interval[sec])     
+
+h.compressor.runtime()
+
+h.compressor.reset()
+
+h.compressor.enable()
+
+h.compressor.disable()
+
+h.error.read()
+
+h.error.clear()
